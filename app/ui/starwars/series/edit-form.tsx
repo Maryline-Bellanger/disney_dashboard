@@ -2,7 +2,12 @@ import Link from "next/link";
 import { Button } from "../../button";
 import { DataForm } from "@/app/lib/definitions";
 import { updateSerie } from "@/app/lib/starwars/series/actions-starwars-series";
-export default function EditForm({ starwarsSerie }: { starwarsSerie: DataForm }) {
+
+export default function EditForm({
+    starwarsSerie,
+}: {
+    starwarsSerie: DataForm;
+}) {
     const updateSerieWithId = updateSerie.bind(null, starwarsSerie.id);
 
     return (

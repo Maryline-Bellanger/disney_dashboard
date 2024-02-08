@@ -12,22 +12,22 @@ export default async function DisneyFilms({
         page?: string;
     };
 }) {
-    const query = searchParams?.query || '';
+    const query = searchParams?.query || "";
     const currentPage = Number(searchParams?.page) || 1;
 
     const totalPages = await fetchDisneyFilmsPages(query);
 
-  return (
-    <div>
-        <h1 className="mb-8 text-xl md:text-2xl">Films Disney</h1>
-        <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-        <Search placeholder="Rechercher un film..." />
-            <CreateFilm />
+    return (
+        <div>
+            <h1 className="mb-8 text-xl md:text-2xl">Films Disney</h1>
+            <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
+                <Search placeholder="Rechercher un film..." />
+                <CreateFilm />
+            </div>
+            <DisneyFilmsTable query={query} currentPage={currentPage} />
+            <div className="mt-5 flex w-full justify-center">
+                <Pagination totalPages={totalPages} />
+            </div>
         </div>
-        <DisneyFilmsTable query={query} currentPage={currentPage} />
-        <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={totalPages} />
-      </div>
-    </div>
-  )
+    );
 }

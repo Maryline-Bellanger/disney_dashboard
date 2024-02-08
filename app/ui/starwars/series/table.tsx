@@ -29,7 +29,7 @@ export default async function StarwarsTableSeries({
                                             {serie.title}
                                         </p>
                                         <p className="text-sm text-gray-500">
-                                        {formatDateToLocal(serie.date)}
+                                            {formatDateToLocal(serie.date)}
                                         </p>
                                     </div>
                                 </div>
@@ -76,14 +76,10 @@ export default async function StarwarsTableSeries({
                                 <tr key={serie.tmdb_id}>
                                     <td>{serie.tmdb_id}</td>
                                     <td>{serie.title}</td>
-                                    <td>
-                                        {formatDateToLocal(serie.date)}
-                                    </td>
+                                    <td>{formatDateToLocal(serie.date)}</td>
                                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                                         <div className="flex justify-end gap-3">
-                                            <UpdateSerie
-                                                id={serie.id}
-                                            />
+                                            <UpdateSerie id={serie.id} />
                                             <DeleteSerie id={serie.id} />
                                         </div>
                                     </td>

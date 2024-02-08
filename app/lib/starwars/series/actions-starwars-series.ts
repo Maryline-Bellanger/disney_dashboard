@@ -24,9 +24,9 @@ export async function createSerie(formData: FormData) {
 
     try {
         await sql`
-    INSERT INTO starwars_series (tmdb_id, title, date)
-    VALUES (${tmdb_id}, ${title}, ${date})
-    `;
+        INSERT INTO starwars_series (tmdb_id, title, date)
+        VALUES (${tmdb_id}, ${title}, ${date})
+        `;
     } catch (error) {
         return {
             message: "Database Error: Failed to Create Starwars Serie.",
@@ -49,7 +49,7 @@ export async function updateSerie(id: string, formData: FormData) {
         UPDATE starwars_series
         SET tmdb_id = ${tmdb_id}, title = ${title}, date = ${date}
         WHERE id = ${id}
-    `;
+        `;
     } catch (error) {
         return {
             message: "Database Error: Failed to Update Starwars Serie.",

@@ -24,9 +24,9 @@ export async function createFilm(formData: FormData) {
 
     try {
         await sql`
-    INSERT INTO starwars_films (tmdb_id, title, date)
-    VALUES (${tmdb_id}, ${title}, ${date})
-    `;
+        INSERT INTO starwars_films (tmdb_id, title, date)
+        VALUES (${tmdb_id}, ${title}, ${date})
+        `;
     } catch (error) {
         return {
             message: "Database Error: Failed to Create Starwars Film.",

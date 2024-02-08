@@ -24,9 +24,9 @@ export async function createFilm(formData: FormData) {
 
     try {
         await sql`
-    INSERT INTO marvel_films (tmdb_id, title, date)
-    VALUES (${tmdb_id}, ${title}, ${date})
-    `;
+        INSERT INTO marvel_films (tmdb_id, title, date)
+        VALUES (${tmdb_id}, ${title}, ${date})
+        `;
     } catch (error) {
         return {
             message: "Database Error: Failed to Create Marvel Film.",
@@ -49,7 +49,7 @@ export async function updateFilm(id: string, formData: FormData) {
         UPDATE marvel_films
         SET tmdb_id = ${tmdb_id}, title = ${title}, date = ${date}
         WHERE id = ${id}
-    `;
+        `;
     } catch (error) {
         return {
             message: "Database Error: Failed to Update Marvel Film.",

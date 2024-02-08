@@ -3,8 +3,15 @@ import { updateAnimation } from "@/app/lib/disney/animations/actions-disney-anim
 import Link from "next/link";
 import { Button } from "../../button";
 
-export default function EditForm({ disneyAnimation }: { disneyAnimation: DataForm }) {
-    const updateAnimationWithId = updateAnimation.bind(null, disneyAnimation.id);
+export default function EditForm({
+    disneyAnimation,
+}: {
+    disneyAnimation: DataForm;
+}) {
+    const updateAnimationWithId = updateAnimation.bind(
+        null,
+        disneyAnimation.id
+    );
 
     return (
         <form action={updateAnimationWithId}>

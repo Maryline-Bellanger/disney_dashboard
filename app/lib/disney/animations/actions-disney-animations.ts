@@ -24,9 +24,9 @@ export async function createAnimation(formData: FormData) {
 
     try {
         await sql`
-    INSERT INTO disney_animations (tmdb_id, title, date)
-    VALUES (${tmdb_id}, ${title}, ${date})
-    `;
+        INSERT INTO disney_animations (tmdb_id, title, date)
+        VALUES (${tmdb_id}, ${title}, ${date})
+        `;
     } catch (error) {
         return {
             message: "Database Error: Failed to Create Disney Animation Film.",
@@ -49,7 +49,7 @@ export async function updateAnimation(id: string, formData: FormData) {
         UPDATE disney_animations
         SET tmdb_id = ${tmdb_id}, title = ${title}, date = ${date}
         WHERE id = ${id}
-    `;
+        `;
     } catch (error) {
         return {
             message: "Database Error: Failed to Update Disney Animation Film.",

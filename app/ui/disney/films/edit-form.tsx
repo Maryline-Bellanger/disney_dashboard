@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Button } from "../../button";
 import { DataForm } from "@/app/lib/definitions";
@@ -6,8 +5,6 @@ import { updateFilm } from "@/app/lib/disney/films/actions-disney-films";
 
 export default function EditForm({ disneyFilm }: { disneyFilm: DataForm }) {
     const updateFilmWithId = updateFilm.bind(null, disneyFilm.id);
-    
-    console.log(disneyFilm);
 
     return (
         <form action={updateFilmWithId}>

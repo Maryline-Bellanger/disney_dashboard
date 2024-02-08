@@ -1,15 +1,15 @@
 import { sql } from "@vercel/postgres";
-import { unstable_noStore as noStore} from 'next/cache'
+import { unstable_noStore as noStore } from "next/cache";
 import { Data, DataForm } from "../../definitions";
 
 const ITEMS_PER_PAGE = 6;
 
 export async function fetchFilteredStarwarsSeries(
     query: string,
-    currentPage: number,
-){
+    currentPage: number
+) {
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-    
+
     try {
         const films = await sql<Data>`
         SELECT
@@ -23,8 +23,8 @@ export async function fetchFilteredStarwarsSeries(
 
         return films.rows;
     } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to fetch Starwars series.');
+        console.error("Database Error:", error);
+        throw new Error("Failed to fetch Starwars series.");
     }
 }
 
@@ -36,11 +36,13 @@ export async function fetchStarwarsSeriesPages(query: string) {
         starwars_series.title ILIKE ${`%${query}%`} 
     `;
 
-        const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
+        const totalPages = Math.ceil(
+            Number(count.rows[0].count) / ITEMS_PER_PAGE
+        );
         return totalPages;
     } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to fetch total number of Starwars series.');
+        console.error("Database Error:", error);
+        throw new Error("Failed to fetch total number of Starwars series.");
     }
 }
 
@@ -55,12 +57,12 @@ export async function fetchSerieStarwarsById(id: string) {
         `;
 
         const serie = data.rows.map((serie) => ({
-        ...serie,
+            ...serie,
         }));
 
         return serie[0];
     } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to fetch Starwars series.');
+        console.error("Database Error:", error);
+        throw new Error("Failed to fetch Starwars series.");
     }
 }

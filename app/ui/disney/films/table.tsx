@@ -79,9 +79,7 @@ export default async function DisneyFilmsTable({
                                     <td>{formatDateToLocal(film.date)}</td>
                                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                                         <div className="flex justify-end gap-3">
-                                            <UpdateFilm
-                                                id={film.id}
-                                            />
+                                            <UpdateFilm id={film.id} />
                                             <DeleteFilm id={film.id} />
                                         </div>
                                     </td>
